@@ -102,6 +102,10 @@
       const username = authenticatedUser.username; // Đã được xử lý bỏ @hcmut.edu.vn
       const role = authenticatedUser.role;
 
+      if (role !== localStorage.getItem('hcmut_role_pending')) {
+        alert('Tên tài khoản hoặc mật khẩu không đúng.');
+        return;
+      }
       // Save into local "HCMUT_DATACORE" (simulate server DB)
       try {
         const db = JSON.parse(localStorage.getItem('HCMUT_DATACORE') || '[]');
